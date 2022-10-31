@@ -1,0 +1,24 @@
+import React, {useState} from "react";
+
+function Form(props){
+    const [inputText, setInputText] = useState("");
+
+    function handleChange(event){
+        const val = event.target.value;
+        setInputText(val);
+      }
+
+    return (
+        <div className="form">
+        <input onChange={handleChange} type="text" value={inputText}/>
+        <button onClick={()=>{
+            props.onAdd(inputText)
+            setInputText("");
+            }}>
+          <span>Add</span>
+        </button>
+      </div>
+    )
+}
+
+export default Form;
